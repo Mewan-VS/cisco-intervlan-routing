@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="960" height="560" fill="#ffffff"/>
+  <text x="480" y="34" text-anchor="middle" font-size="20" font-weight="600" fill="#1f2937">Secure Office Network – VLANs with Router-on-a-Stick</text>
+  <text x="480" y="56" text-anchor="middle" font-size="13" fill="#6b7280">Design diagram (logical topology)</text>
+
+  <!-- links -->
+  <line x1="480" y1="140" x2="250" y2="250" stroke="#374151" stroke-width="4"/>
+  <line x1="290" y1="270" x2="670" y2="270" stroke="#374151" stroke-width="4"/>
+  <text x="335" y="190" font-size="12" fill="#374151">802.1Q trunk</text>
+  <text x="372" y="160" font-size="11" fill="#6b7280">R1 G0/0</text>
+  <text x="200" y="236" font-size="11" fill="#6b7280">SW1 G0/1</text>
+  <text x="480" y="260" text-anchor="middle" font-size="12" fill="#374151">802.1Q trunk (VLANs 10,20,30 · native 99)</text>
+  <text x="300" y="292" font-size="11" fill="#6b7280">G0/2</text>
+  <text x="630" y="292" font-size="11" fill="#6b7280">G0/1</text>
+
+  <!-- PC links SW1 -->
+  <line x1="250" y1="290" x2="110" y2="420" stroke="#c2410c" stroke-width="2.5"/>
+  <line x1="250" y1="290" x2="250" y2="420" stroke="#1d4ed8" stroke-width="2.5"/>
+  <line x1="250" y1="290" x2="390" y2="420" stroke="#15803d" stroke-width="2.5"/>
+  <!-- PC links SW2 -->
+  <line x1="710" y1="290" x2="560" y2="420" stroke="#c2410c" stroke-width="2.5"/>
+  <line x1="710" y1="290" x2="680" y2="420" stroke="#1d4ed8" stroke-width="2.5"/>
+  <line x1="710" y1="290" x2="800" y2="420" stroke="#15803d" stroke-width="2.5"/>
+  <line x1="710" y1="290" x2="910" y2="420" stroke="#1d4ed8" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+  <!-- router -->
+  <circle cx="480" cy="115" r="34" fill="#0e7490"/>
+  <text x="480" y="120" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">R1</text>
+  <text x="530" y="100" font-size="12" fill="#1f2937">Cisco 2911</text>
+  <text x="530" y="116" font-size="11" fill="#374151">G0/0.10  192.168.10.1</text>
+  <text x="530" y="130" font-size="11" fill="#374151">G0/0.20  192.168.20.1</text>
+  <text x="530" y="144" font-size="11" fill="#374151">G0/0.30  192.168.30.1</text>
+
+  <!-- switches -->
+  <rect x="200" y="250" width="100" height="40" rx="6" fill="#334155"/>
+  <text x="250" y="275" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">SW1 2960</text>
+  <rect x="660" y="250" width="100" height="40" rx="6" fill="#334155"/>
+  <text x="710" y="275" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">SW2 2960</text>
+
+  <!-- PCs -->
+  <g font-size="12" text-anchor="middle">
+    <rect x="60" y="420" width="100" height="56" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+    <text x="110" y="442" font-weight="600" fill="#9a3412">HR-PC1</text><text x="110" y="460" fill="#374151">192.168.10.11</text>
+    <text x="150" y="410" font-size="10" fill="#6b7280">Fa0/1</text>
+
+    <rect x="200" y="420" width="100" height="56" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="250" y="442" font-weight="600" fill="#1e40af">IT-PC1</text><text x="250" y="460" fill="#374151">192.168.20.11</text>
+    <text x="272" y="410" font-size="10" fill="#6b7280">Fa0/2</text>
+
+    <rect x="340" y="420" width="100" height="56" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+    <text x="390" y="442" font-weight="600" fill="#166534">FIN-PC1</text><text x="390" y="460" fill="#374151">192.168.30.11</text>
+    <text x="345" y="410" font-size="10" fill="#6b7280">Fa0/3</text>
+
+    <rect x="510" y="420" width="100" height="56" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+    <text x="560" y="442" font-weight="600" fill="#9a3412">HR-PC2</text><text x="560" y="460" fill="#374151">192.168.10.12</text>
+    <text x="608" y="410" font-size="10" fill="#6b7280">Fa0/1</text>
+
+    <rect x="630" y="420" width="100" height="56" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="680" y="442" font-weight="600" fill="#1e40af">IT-PC2</text><text x="680" y="460" fill="#374151">192.168.20.12</text>
+    <text x="707" y="410" font-size="10" fill="#6b7280">Fa0/2</text>
+
+    <rect x="750" y="420" width="100" height="56" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+    <text x="800" y="442" font-weight="600" fill="#166534">FIN-PC2</text><text x="800" y="460" fill="#374151">192.168.30.12</text>
+    <text x="775" y="410" font-size="10" fill="#6b7280">Fa0/3</text>
+
+    <rect x="860" y="420" width="90" height="56" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="905" y="442" font-weight="600" fill="#1e40af">IT-SERVER</text><text x="905" y="460" fill="#374151">192.168.20.100</text>
+    <text x="845" y="400" font-size="10" fill="#6b7280">Fa0/4</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="12">
+    <rect x="60" y="510" width="14" height="14" fill="#c2410c"/><text x="80" y="522" fill="#374151">VLAN 10 HR – 192.168.10.0/24</text>
+    <rect x="310" y="510" width="14" height="14" fill="#1d4ed8"/><text x="330" y="522" fill="#374151">VLAN 20 IT – 192.168.20.0/24</text>
+    <rect x="560" y="510" width="14" height="14" fill="#15803d"/><text x="580" y="522" fill="#374151">VLAN 30 FINANCE – 192.168.30.0/24</text>
+    <text x="830" y="522" fill="#6b7280">dashed = optional</text>
+  </g>
+</svg>

@@ -4,6 +4,8 @@ A small office network in Cisco Packet Tracer. Three departments (HR, IT, Financ
 
 ## Topology
 
+![Network topology](diagrams/topology.svg)
+
 ```
                  [R1 - 2911]
                     G0/0  (802.1Q trunk)
@@ -32,6 +34,7 @@ A small office network in Cisco Packet Tracer. Three departments (HR, IT, Financ
 ## Repository Contents
 | Path | Description |
 |---|---|
+| `diagrams/topology.svg` | Logical topology diagram |
 | `configs/R1.txt` | Router config (subinterfaces, dot1Q) |
 | `configs/SW1.txt` | Switch 1 config |
 | `configs/SW2.txt` | Switch 2 config |
