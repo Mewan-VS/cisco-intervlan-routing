@@ -1,0 +1,62 @@
+! ===== SW1 (Cisco 2960) =====
+! Paste in CLI tab after: enable -> configure terminal
+hostname SW1
+no ip domain-lookup
+enable secret cisco123
+!
+vlan 10
+ name HR
+vlan 20
+ name IT
+vlan 30
+ name FINANCE
+vlan 99
+ name NATIVE
+vlan 999
+ name PARKING
+!
+! --- Access ports ---
+interface FastEthernet0/1
+ description HR-PC1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+interface FastEthernet0/2
+ description IT-PC1
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+interface FastEthernet0/3
+ description FIN-PC1
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+!
+! --- Trunk to R1 ---
+interface GigabitEthernet0/1
+ description Trunk to R1 G0/0
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport nonegotiate
+!
+! --- Trunk to SW2 ---
+interface GigabitEthernet0/2
+ description Trunk to SW2 G0/1
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+ switchport nonegotiate
+!
+! --- Security: park and shut unused ports ---
+interface range FastEthernet0/4 - 24
+ switchport mode access
+ switchport access vlan 999
+ shutdown
+!
+line console 0
+ password cisco
+ login
+!
+end
+write memory

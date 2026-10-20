@@ -1,0 +1,33 @@
+! ===== R1 (Cisco 2911) - Router-on-a-Stick =====
+! Paste in CLI tab after: enable -> configure terminal
+hostname R1
+no ip domain-lookup
+enable secret cisco123
+banner motd # Authorized access only #
+!
+interface GigabitEthernet0/0
+ description Trunk to SW1 G0/1
+ no ip address
+ no shutdown
+!
+interface GigabitEthernet0/0.10
+ description HR - VLAN 10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+!
+interface GigabitEthernet0/0.20
+ description IT - VLAN 20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+!
+interface GigabitEthernet0/0.30
+ description FINANCE - VLAN 30
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
+!
+line console 0
+ password cisco
+ login
+!
+end
+write memory
